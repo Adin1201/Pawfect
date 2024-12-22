@@ -1,0 +1,88 @@
+@import '../../../assets/scss/variables.scss';
+
+.admin-dashboard-page {
+  padding: 64px;
+
+  .second-row {
+    margin-top: 64px;
+  }
+
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+
+  .stats-box {
+    position: relative;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    text-align: center;
+    color: #666;
+    padding: 16px;
+    padding-top: 66px;
+    transition: all 0.2s;
+
+    &:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    &__icon {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -50px;
+      margin-top: -50px;
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &--verified {
+        background-color: #71b945;
+      }
+      &--pending {
+        background-color: #ffad01;
+      }
+      &--expired {
+        background-color: #b94545;
+      }
+
+      img {
+        max-width: 50%;
+      }
+    }
+
+    &__value {
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    &__name {
+      font-size: 18px;
+      margin-top: 4px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 32px;
+    padding-top: 64px;
+
+    .stats-box {
+      padding-top: 50px;
+
+      &__icon {
+        width: 80px;
+        height: 80px;
+        margin-left: -40px;
+        margin-top: -40px;
+      }
+    }
+  }
+}

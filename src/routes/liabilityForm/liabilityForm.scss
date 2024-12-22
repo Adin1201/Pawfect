@@ -1,0 +1,22 @@
+@import '../../assets/scss/variables.scss';
+
+.liability-form-page {
+  margin: $spacing3;
+
+  .liability-content-card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+
+    .card-header {
+      border-bottom: 1px solid #eee;
+      padding-left: $spacing3;
+      padding-right: $spacing3;
+      padding-top: $spacing2;
+    }
+
+    .description-wrapper {
+      padding: $spacing3;
+    }
+  }
+}

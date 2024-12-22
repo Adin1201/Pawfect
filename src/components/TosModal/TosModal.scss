@@ -1,0 +1,21 @@
+@import '../../assets/scss/variables.scss';
+
+.tos-modal {
+  .tos-content {
+    padding: $spacing5 65px;
+    max-height: 500px;
+  }
+
+  .buttons-container {
+    border-top: 1px solid #eaeaea;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+      width: 150px;
+    }
+  }
+}

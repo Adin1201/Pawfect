@@ -1,0 +1,26 @@
+.tableHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .pageSizeWrapper {
+    display: flex;
+    align-items: center;
+
+    > span:first-child {
+      margin-right: 6px;
+    }
+
+    > span:last-child {
+      margin-left: 6px;
+    }
+
+    .selectWrapper {
+      width: 90px;
+    }
+  }
+
+  .searchWrapper {
+  }
+}

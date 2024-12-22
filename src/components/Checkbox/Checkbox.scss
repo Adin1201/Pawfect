@@ -1,0 +1,66 @@
+@import '../../assets/scss/variables.scss';
+
+.checkbox {
+  .checkbox-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+
+    input[type='checkbox'] {
+      min-width: 30px;
+      height: 30px;
+      outline: none;
+      cursor: pointer;
+      background-color: white;
+      border-radius: 15px;
+      vertical-align: middle;
+      -webkit-appearance: none;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: lighten($secondary, 25);
+      }
+    }
+
+    input[type='checkbox']:checked {
+      background-color: $secondary;
+    }
+
+    input[type='checkbox']:disabled {
+      cursor: default;
+    }
+
+    .checkbox-label {
+      user-select: none;
+      cursor: pointer;
+      border: none;
+      color: #fff;
+      padding-left: 10px;
+      background: none;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    &.checkbox-primary {
+    }
+
+    &.checkbox-secondary {
+      input[type='checkbox'] {
+        border: 1px solid #d2d2d2;
+      }
+
+      .checkbox-label {
+        color: $textColor;
+      }
+    }
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    display: inline-block;
+    margin-left: $spacing1;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,66 @@
+@import '../../assets/scss/variables.scss';
+
+.my-pet-card {
+  padding: 5px;
+  background-color: #fff;
+  width: 500px;
+  max-width: 100%;
+  box-shadow: (0px 0px 20px rgba(0, 0, 0, 0.15));
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s;
+
+  .pet-img-container {
+    min-height: 300px;
+
+    .pet-img {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 5px;
+    }
+  }
+
+  .pet-info-text-muted {
+    color: #d2d2d2;
+  }
+
+  .pet-info-wrapper {
+    padding: $spacing3;
+    display: flex;
+    flex-direction: column;
+
+    .pet-info-label {
+      font-weight: 700;
+
+      .pet-info-text {
+        font-weight: 400;
+      }
+    }
+
+    .medical-info-item-wrapper {
+      display: flex;
+      align-items: center;
+
+      .status {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #7cf989;
+        margin-right: 10px;
+
+        &.status.status-not-verified {
+          background-color: #ffad01;
+        }
+
+        &.status.status-declined {
+          background-color: #ff5131;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    background: rgba(55, 190, 235, 0.07);
+  }
+}

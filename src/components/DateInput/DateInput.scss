@@ -1,0 +1,41 @@
+@import '../../assets/scss/variables.scss';
+
+.date-input {
+  position: relative;
+
+  .date-picker {
+    width: 100%;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    height: 45px;
+    padding-left: 45px;
+    padding-right: $spacing2;
+    display: block;
+    color: $textColor;
+  }
+
+  .react-datepicker-wrapper,
+  .react-datepicker__input-container {
+    display: block;
+    margin-bottom: -10px;
+  }
+
+  .title-text {
+    font-size: 18px;
+  }
+
+  .calendar-icon {
+    height: 22px;
+    position: absolute;
+    top: 11px;
+    left: $spacing2;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    display: inline-block;
+    margin-left: $spacing1;
+    font-size: 14px;
+  }
+}

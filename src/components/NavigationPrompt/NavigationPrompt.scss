@@ -1,0 +1,23 @@
+@import '../../assets/scss/variables.scss';
+
+.navigation-prompt-modal {
+  min-height: 250px;
+  width: 600px;
+  padding: $spacing5;
+  display: flex;
+  flex-direction: column;
+
+  .navigation-prompt-message {
+    font-size: 18px;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $spacing4;
+
+    .button {
+      width: 150px;
+    }
+  }
+}

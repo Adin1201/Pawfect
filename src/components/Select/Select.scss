@@ -1,0 +1,17 @@
+@import '../../assets/scss/variables.scss';
+
+.select-dropdown {
+  position: relative;
+
+  .label-text {
+    font-size: 18px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    display: inline-block;
+    margin-left: $spacing1;
+    font-size: 14px;
+  }
+}

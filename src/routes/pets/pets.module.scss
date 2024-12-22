@@ -1,0 +1,17 @@
+.actionButton {
+  margin-left: 10px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:hover {
+    img {
+      opacity: 0.5;
+    }
+  }
+
+  img {
+    width: 26px;
+  }
+}

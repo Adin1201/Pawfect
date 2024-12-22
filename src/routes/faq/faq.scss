@@ -1,0 +1,46 @@
+@import '../../assets/scss/variables.scss';
+
+.faq-page {
+  margin: $spacing3;
+
+  .content-wrapper {
+    .section-wrapper {
+      background-color: #fff;
+      border: 1px solid #d2d2d2;
+      margin-bottom: $spacing3;
+      padding: $spacing3;
+      cursor: pointer;
+
+      .list-item-wrapper {
+        display: flex;
+        align-items: center;
+
+        .question-wrapper {
+          flex: 1;
+          user-select: none;
+
+          .question-title-text {
+            font-size: 20px;
+            font-weight: 700;
+          }
+        }
+
+        .plus-img-wrapper {
+          outline: none;
+          border: none;
+          padding: none;
+          background: none;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .answer-container {
+      margin-top: $spacing2;
+
+      .answer-text {
+        font-size: 18px;
+      }
+    }
+  }
+}

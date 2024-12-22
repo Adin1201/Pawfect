@@ -1,0 +1,137 @@
+@import '../../assets/scss/variables.scss';
+
+.onboarding-modal {
+  padding: $spacing5 65px;
+  overflow: auto;
+
+  .content-wrapper-onboarding {
+    display: flex;
+
+    .pet-img-onboarding {
+      max-width: 100%;
+      width: 360px;
+      margin-right: $spacing4;
+    }
+
+    .content-onboarding {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .title-text-onboarding {
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: $spacing2;
+      }
+
+      .description-text-onboarding {
+        font-size: 18px;
+      }
+
+      .step-text-onboarding {
+        font-weight: 700;
+        font-size: 24px;
+        color: #ffad01;
+        margin: $spacing2 0 $spacing2 0;
+        display: block;
+      }
+
+      .modal-input-onboarding {
+        outline: none;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border: 1px solid #565656;
+        border-right: 0px;
+        height: 56px;
+        width: 100%;
+        padding-left: $spacing3;
+        padding-right: $spacing3;
+
+        &.date-input {
+          border: 0;
+          background: transparent;
+          padding-left: 0;
+          padding-right: 0;
+          color: $textColor;
+        }
+      }
+
+      .date-input-wrapper {
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border: 1px solid #565656;
+        border-right: 0px;
+        height: 56px;
+        width: 100%;
+        padding-left: 60px;
+        position: relative;
+
+        .calendar-icon {
+          height: 22px;
+          position: absolute;
+          top: 15px;
+          left: $spacing3;
+        }
+      }
+
+      .modal-input-button-onboarding {
+        outline: none;
+        border: none;
+        background: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 18px;
+        background-color: #08376b;
+        height: 56px;
+        width: 170px;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+
+        &.button-loading {
+          position: relative;
+          color: transparent;
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border: 2px solid $primary;
+            border-top: 2px solid #fff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 0.7s linear infinite;
+            margin: auto;
+          }
+        }
+
+        &[disabled] {
+          background-color: #666;
+          cursor: not-allowed;
+        }
+      }
+
+      .error-message-text {
+        color: red;
+        font-size: 14px;
+        margin-left: $spacing3;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    max-height: 100vh;
+    padding: $spacing5 20px;
+  }
+
+  ::placeholder {
+    color: $textColor;
+    font-size: 20px;
+  }
+}

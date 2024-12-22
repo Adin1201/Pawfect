@@ -1,0 +1,17 @@
+@import '../../assets/scss/variables.scss';
+
+.email-verification-modal {
+  width: 450px;
+  padding: $spacing3;
+
+  .modal-title {
+    font-size: 24px;
+    color: $primary;
+    margin: 0;
+  }
+
+  .modal-subtitle {
+    font-size: 15px;
+    color: #999;
+  }
+}

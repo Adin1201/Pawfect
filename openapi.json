@@ -1,0 +1,4314 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Pawfect API",
+    "description": "A Pawfect Web API 1.0",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1/admin/dashboard": {
+      "get": {
+        "tags": ["AdminDashboard"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/faq": {
+      "get": {
+        "tags": ["AdminFaq"],
+        "parameters": [
+          {
+            "name": "Includes",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "UpdatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "OrderByKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsDescending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsFullSize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResponseDtoPagedResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResponseDtoPagedResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResponseDtoPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["AdminFaq"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaqRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaqRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaqRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaqRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": ["AdminFaq"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaqRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaqRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaqRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaqRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["AdminFaq"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/faq/id": {
+      "get": {
+        "tags": ["AdminFaq"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/liabilityform": {
+      "get": {
+        "tags": ["AdminLiabilityForm"],
+        "parameters": [
+          {
+            "name": "Includes",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "UpdatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "OrderByKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsDescending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsFullSize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiabilityFormResponseDtoPagedResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiabilityFormResponseDtoPagedResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiabilityFormResponseDtoPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["AdminLiabilityForm"],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "IATAId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "IATAId": {
+                  "style": "form"
+                },
+                "File": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": ["AdminLiabilityForm"],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "IATAId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "IATAId": {
+                  "style": "form"
+                },
+                "File": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/liabilityform/{id}": {
+      "get": {
+        "tags": ["AdminLiabilityForm"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiabilityFormResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiabilityFormResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiabilityFormResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["AdminLiabilityForm"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/pets": {
+      "get": {
+        "tags": ["AdminPets"],
+        "parameters": [
+          {
+            "name": "Includes",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "UpdatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "OrderByKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsDescending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsFullSize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDtoPagedResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDtoPagedResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDtoPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["AdminPets"],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Sex": {
+                    "$ref": "#/components/schemas/GenderType"
+                  },
+                  "PassportNo": {
+                    "type": "string"
+                  },
+                  "Species": {
+                    "type": "string"
+                  },
+                  "DateOfBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "PassportCountryId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Breed": {
+                    "type": "string"
+                  },
+                  "Color": {
+                    "type": "string"
+                  },
+                  "MicrochipNo": {
+                    "type": "string"
+                  },
+                  "DateOfApplicationOfTransponder": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "LocationOfTransponder": {
+                    "type": "string"
+                  },
+                  "PetTatto": {
+                    "type": "string"
+                  },
+                  "DateOfApplicationOfTattoo": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "LocationOfTatto": {
+                    "type": "string"
+                  },
+                  "PetImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "OtherComment": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Veterinarian.Name": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Address": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Phone": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Email": {
+                    "type": "string"
+                  },
+                  "Veterinarian.NotableCharacteristics": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Comments": {
+                    "type": "string"
+                  },
+                  "Medical.Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Medical.RabbiesManufacturer": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesNameOfProduct": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesBachNumber": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesValidFrom": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.RabbiesValidTo": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.RabbiesAmendments": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesAuthorisedVeterinarian": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesStatus": {
+                    "$ref": "#/components/schemas/MedicalStatusEnum"
+                  },
+                  "Medical.RabbiesAntibodySampleCollectionDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.RabbiesAntibodyAuthorisedVeterinarian": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesAntibodyAddress": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesAntibodyTelephone": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesAntibodyDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.RabbiesAntibodySignature": {
+                    "type": "string"
+                  },
+                  "Medical.AntiEchinococcousManufacturer": {
+                    "type": "string"
+                  },
+                  "Medical.AntiEchinococcousNameOfProduct": {
+                    "type": "string"
+                  },
+                  "Medical.AntiEchinococcousValidFrom": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.AntiEchinococcousValidTo": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.AntiEchinococcousAuthorisedVeterinarian": {
+                    "type": "string"
+                  },
+                  "Medical.AntiEchinococcousStatus": {
+                    "$ref": "#/components/schemas/MedicalStatusEnum"
+                  },
+                  "Medical.OtherParasiteTreatments": {
+                    "type": "string"
+                  },
+                  "Medical.OtherVaccinations": {
+                    "type": "string"
+                  },
+                  "Medical.ClinicalExamination": {
+                    "type": "string"
+                  },
+                  "Medical.Legalisation": {
+                    "type": "string"
+                  },
+                  "Medical.Others": {
+                    "type": "string"
+                  },
+                  "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Sex": {
+                  "style": "form"
+                },
+                "PassportNo": {
+                  "style": "form"
+                },
+                "Species": {
+                  "style": "form"
+                },
+                "DateOfBirth": {
+                  "style": "form"
+                },
+                "PassportCountryId": {
+                  "style": "form"
+                },
+                "Breed": {
+                  "style": "form"
+                },
+                "Color": {
+                  "style": "form"
+                },
+                "MicrochipNo": {
+                  "style": "form"
+                },
+                "DateOfApplicationOfTransponder": {
+                  "style": "form"
+                },
+                "LocationOfTransponder": {
+                  "style": "form"
+                },
+                "PetTatto": {
+                  "style": "form"
+                },
+                "DateOfApplicationOfTattoo": {
+                  "style": "form"
+                },
+                "LocationOfTatto": {
+                  "style": "form"
+                },
+                "PetImage": {
+                  "style": "form"
+                },
+                "OtherComment": {
+                  "style": "form"
+                },
+                "Veterinarian.Id": {
+                  "style": "form"
+                },
+                "Veterinarian.Name": {
+                  "style": "form"
+                },
+                "Veterinarian.Address": {
+                  "style": "form"
+                },
+                "Veterinarian.Phone": {
+                  "style": "form"
+                },
+                "Veterinarian.Email": {
+                  "style": "form"
+                },
+                "Veterinarian.NotableCharacteristics": {
+                  "style": "form"
+                },
+                "Veterinarian.Comments": {
+                  "style": "form"
+                },
+                "Medical.Id": {
+                  "style": "form"
+                },
+                "Medical.RabbiesManufacturer": {
+                  "style": "form"
+                },
+                "Medical.RabbiesNameOfProduct": {
+                  "style": "form"
+                },
+                "Medical.RabbiesBachNumber": {
+                  "style": "form"
+                },
+                "Medical.RabbiesValidFrom": {
+                  "style": "form"
+                },
+                "Medical.RabbiesValidTo": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAmendments": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAuthorisedVeterinarian": {
+                  "style": "form"
+                },
+                "Medical.RabbiesStatus": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodySampleCollectionDate": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodyAuthorisedVeterinarian": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodyAddress": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodyTelephone": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodyDate": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodySignature": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousManufacturer": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousNameOfProduct": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousValidFrom": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousValidTo": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousAuthorisedVeterinarian": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousStatus": {
+                  "style": "form"
+                },
+                "Medical.OtherParasiteTreatments": {
+                  "style": "form"
+                },
+                "Medical.OtherVaccinations": {
+                  "style": "form"
+                },
+                "Medical.ClinicalExamination": {
+                  "style": "form"
+                },
+                "Medical.Legalisation": {
+                  "style": "form"
+                },
+                "Medical.Others": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/pets/{id}": {
+      "get": {
+        "tags": ["AdminPets"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["AdminPets"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/users": {
+      "post": {
+        "tags": ["AdminUsers"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminCreateUserRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminCreateUserRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminCreateUserRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminCreateUserRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": ["AdminUsers"],
+        "parameters": [
+          {
+            "name": "Includes",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "UpdatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "OrderByKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsDescending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsFullSize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDtoPagedResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDtoPagedResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDtoPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["AdminUsers"],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Surname": {
+                    "type": "string"
+                  },
+                  "GenderType": {
+                    "$ref": "#/components/schemas/GenderType"
+                  },
+                  "PassportNo": {
+                    "type": "string"
+                  },
+                  "DocumentExpiryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "DateOfBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "NationalityId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Role": {
+                    "$ref": "#/components/schemas/UserRoleEnum"
+                  },
+                  "ProfileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Status": {
+                    "$ref": "#/components/schemas/UserStatusEnum"
+                  },
+                  "OtherInformation": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Telephone": {
+                    "type": "string"
+                  },
+                  "Facebook": {
+                    "type": "string"
+                  },
+                  "Instagram": {
+                    "type": "string"
+                  },
+                  "LinkedIn": {
+                    "type": "string"
+                  },
+                  "LiabilityForm": {
+                    "type": "boolean"
+                  },
+                  "EmailVerifiedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Surname": {
+                  "style": "form"
+                },
+                "GenderType": {
+                  "style": "form"
+                },
+                "PassportNo": {
+                  "style": "form"
+                },
+                "DocumentExpiryDate": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "DateOfBirth": {
+                  "style": "form"
+                },
+                "NationalityId": {
+                  "style": "form"
+                },
+                "Role": {
+                  "style": "form"
+                },
+                "ProfileImage": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "OtherInformation": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Telephone": {
+                  "style": "form"
+                },
+                "Facebook": {
+                  "style": "form"
+                },
+                "Instagram": {
+                  "style": "form"
+                },
+                "LinkedIn": {
+                  "style": "form"
+                },
+                "LiabilityForm": {
+                  "style": "form"
+                },
+                "EmailVerifiedAt": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/users/{id}": {
+      "get": {
+        "tags": ["AdminUsers"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/refresh-token": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/logout": {
+      "post": {
+        "tags": ["Auth"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/forgot-password/request": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/forgot-password/verify-code": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordVerifyCodeDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordVerifyCodeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordVerifyCodeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordVerifyCodeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/forgot-password/reset-password": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordResetDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordResetDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordResetDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordResetDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/email-verification/verify": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationVerifyCodeDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationVerifyCodeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationVerifyCodeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationVerifyCodeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/email-verification/resend": {
+      "post": {
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerificationRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/countries": {
+      "get": {
+        "tags": ["Countries"],
+        "parameters": [
+          {
+            "name": "Includes",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "UpdatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "OrderByKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsDescending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsFullSize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountryResponseDtoPagedResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountryResponseDtoPagedResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountryResponseDtoPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/iata": {
+      "get": {
+        "tags": ["Iata"],
+        "parameters": [
+          {
+            "name": "Includes",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "UpdatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "OrderByKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsDescending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsFullSize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IATAResponseDtoPagedResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IATAResponseDtoPagedResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IATAResponseDtoPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/organisation/pets/{id}": {
+      "get": {
+        "tags": ["OrganisationPets"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/organisation/search": {
+      "get": {
+        "tags": ["OrganisationSearch"],
+        "parameters": [
+          {
+            "name": "UserExternalId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MicrochipNo",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PetResponseDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PetResponseDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PetResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/organisation/users/{id}": {
+      "get": {
+        "tags": ["OrganisationUsers"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/me": {
+      "get": {
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Users"],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Surname": {
+                    "type": "string"
+                  },
+                  "GenderType": {
+                    "$ref": "#/components/schemas/GenderType"
+                  },
+                  "PassportNo": {
+                    "type": "string"
+                  },
+                  "DocumentExpiryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "DateOfBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "NationalityId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "ProfileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Telephone": {
+                    "type": "string"
+                  },
+                  "OtherInformation": {
+                    "type": "string"
+                  },
+                  "Facebook": {
+                    "type": "string"
+                  },
+                  "Instagram": {
+                    "type": "string"
+                  },
+                  "LinkedIn": {
+                    "type": "string"
+                  },
+                  "LiabilityForm": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Surname": {
+                  "style": "form"
+                },
+                "GenderType": {
+                  "style": "form"
+                },
+                "PassportNo": {
+                  "style": "form"
+                },
+                "DocumentExpiryDate": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "DateOfBirth": {
+                  "style": "form"
+                },
+                "NationalityId": {
+                  "style": "form"
+                },
+                "ProfileImage": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Telephone": {
+                  "style": "form"
+                },
+                "OtherInformation": {
+                  "style": "form"
+                },
+                "Facebook": {
+                  "style": "form"
+                },
+                "Instagram": {
+                  "style": "form"
+                },
+                "LinkedIn": {
+                  "style": "form"
+                },
+                "LiabilityForm": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/me/change-password": {
+      "put": {
+        "tags": ["Users"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMePasswordRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMePasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMePasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMePasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/me/deactivate": {
+      "post": {
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user/faq": {
+      "get": {
+        "tags": ["UsersFaq"],
+        "parameters": [
+          {
+            "name": "Includes",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "UpdatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "OrderByKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsDescending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsFullSize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResponseDtoPagedResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResponseDtoPagedResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaqResponseDtoPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user/liabilityform": {
+      "get": {
+        "tags": ["UsersLiabilityForm"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LiabilityFormResponseDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LiabilityFormResponseDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LiabilityFormResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user/liabilityform/{id}": {
+      "get": {
+        "tags": ["UsersLiabilityForm"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiabilityFormResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiabilityFormResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiabilityFormResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user/pets": {
+      "get": {
+        "tags": ["UsersPets"],
+        "parameters": [
+          {
+            "name": "Includes",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "UpdatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "OrderByKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsDescending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsFullSize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "Query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDtoPagedResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDtoPagedResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDtoPagedResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["UsersPets"],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetRequestDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PetRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["UsersPets"],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Sex": {
+                    "$ref": "#/components/schemas/GenderType"
+                  },
+                  "PassportNo": {
+                    "type": "string"
+                  },
+                  "Species": {
+                    "type": "string"
+                  },
+                  "DateOfBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "PassportCountryId": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Breed": {
+                    "type": "string"
+                  },
+                  "Color": {
+                    "type": "string"
+                  },
+                  "MicrochipNo": {
+                    "type": "string"
+                  },
+                  "DateOfApplicationOfTransponder": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "LocationOfTransponder": {
+                    "type": "string"
+                  },
+                  "PetTatto": {
+                    "type": "string"
+                  },
+                  "DateOfApplicationOfTattoo": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "LocationOfTatto": {
+                    "type": "string"
+                  },
+                  "PetImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "OtherComment": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Veterinarian.Name": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Address": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Phone": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Email": {
+                    "type": "string"
+                  },
+                  "Veterinarian.NotableCharacteristics": {
+                    "type": "string"
+                  },
+                  "Veterinarian.Comments": {
+                    "type": "string"
+                  },
+                  "Medical.Id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Medical.RabbiesManufacturer": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesNameOfProduct": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesBachNumber": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesValidFrom": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.RabbiesValidTo": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.RabbiesAmendments": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesAuthorisedVeterinarian": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesStatus": {
+                    "$ref": "#/components/schemas/MedicalStatusEnum"
+                  },
+                  "Medical.RabbiesAntibodySampleCollectionDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.RabbiesAntibodyAuthorisedVeterinarian": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesAntibodyAddress": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesAntibodyTelephone": {
+                    "type": "string"
+                  },
+                  "Medical.RabbiesAntibodyDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.RabbiesAntibodySignature": {
+                    "type": "string"
+                  },
+                  "Medical.AntiEchinococcousManufacturer": {
+                    "type": "string"
+                  },
+                  "Medical.AntiEchinococcousNameOfProduct": {
+                    "type": "string"
+                  },
+                  "Medical.AntiEchinococcousValidFrom": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.AntiEchinococcousValidTo": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Medical.AntiEchinococcousAuthorisedVeterinarian": {
+                    "type": "string"
+                  },
+                  "Medical.AntiEchinococcousStatus": {
+                    "$ref": "#/components/schemas/MedicalStatusEnum"
+                  },
+                  "Medical.OtherParasiteTreatments": {
+                    "type": "string"
+                  },
+                  "Medical.OtherVaccinations": {
+                    "type": "string"
+                  },
+                  "Medical.ClinicalExamination": {
+                    "type": "string"
+                  },
+                  "Medical.Legalisation": {
+                    "type": "string"
+                  },
+                  "Medical.Others": {
+                    "type": "string"
+                  },
+                  "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Sex": {
+                  "style": "form"
+                },
+                "PassportNo": {
+                  "style": "form"
+                },
+                "Species": {
+                  "style": "form"
+                },
+                "DateOfBirth": {
+                  "style": "form"
+                },
+                "PassportCountryId": {
+                  "style": "form"
+                },
+                "Breed": {
+                  "style": "form"
+                },
+                "Color": {
+                  "style": "form"
+                },
+                "MicrochipNo": {
+                  "style": "form"
+                },
+                "DateOfApplicationOfTransponder": {
+                  "style": "form"
+                },
+                "LocationOfTransponder": {
+                  "style": "form"
+                },
+                "PetTatto": {
+                  "style": "form"
+                },
+                "DateOfApplicationOfTattoo": {
+                  "style": "form"
+                },
+                "LocationOfTatto": {
+                  "style": "form"
+                },
+                "PetImage": {
+                  "style": "form"
+                },
+                "OtherComment": {
+                  "style": "form"
+                },
+                "Veterinarian.Id": {
+                  "style": "form"
+                },
+                "Veterinarian.Name": {
+                  "style": "form"
+                },
+                "Veterinarian.Address": {
+                  "style": "form"
+                },
+                "Veterinarian.Phone": {
+                  "style": "form"
+                },
+                "Veterinarian.Email": {
+                  "style": "form"
+                },
+                "Veterinarian.NotableCharacteristics": {
+                  "style": "form"
+                },
+                "Veterinarian.Comments": {
+                  "style": "form"
+                },
+                "Medical.Id": {
+                  "style": "form"
+                },
+                "Medical.RabbiesManufacturer": {
+                  "style": "form"
+                },
+                "Medical.RabbiesNameOfProduct": {
+                  "style": "form"
+                },
+                "Medical.RabbiesBachNumber": {
+                  "style": "form"
+                },
+                "Medical.RabbiesValidFrom": {
+                  "style": "form"
+                },
+                "Medical.RabbiesValidTo": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAmendments": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAuthorisedVeterinarian": {
+                  "style": "form"
+                },
+                "Medical.RabbiesStatus": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodySampleCollectionDate": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodyAuthorisedVeterinarian": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodyAddress": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodyTelephone": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodyDate": {
+                  "style": "form"
+                },
+                "Medical.RabbiesAntibodySignature": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousManufacturer": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousNameOfProduct": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousValidFrom": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousValidTo": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousAuthorisedVeterinarian": {
+                  "style": "form"
+                },
+                "Medical.AntiEchinococcousStatus": {
+                  "style": "form"
+                },
+                "Medical.OtherParasiteTreatments": {
+                  "style": "form"
+                },
+                "Medical.OtherVaccinations": {
+                  "style": "form"
+                },
+                "Medical.ClinicalExamination": {
+                  "style": "form"
+                },
+                "Medical.Legalisation": {
+                  "style": "form"
+                },
+                "Medical.Others": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/user/pets/{petId}": {
+      "get": {
+        "tags": ["UsersPets"],
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PetResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user/pets/{id}": {
+      "delete": {
+        "tags": ["UsersPets"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AdminCreateUserRequestDto": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/UserRoleEnum"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "sendEmailWithDetails": {
+            "type": "boolean"
+          },
+          "iataId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "organisationName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CountryResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CountryResponseDtoPagedResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryResponseDto"
+            },
+            "nullable": true
+          },
+          "totalResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashboardResponseDto": {
+        "type": "object",
+        "properties": {
+          "verifiedUsers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pendingUsers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expiredUsers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "verifiedPets": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pendingPets": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expiredPets": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmailVerificationRequestDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmailVerificationVerifyCodeDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ErrorCode": {
+        "enum": [
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 10000,
+          10001, 10002, 10003, 10004, 10005, 10006, 10007, 10008, 10009, 10010,
+          10011, 10012, 10013, 10014, 10015, 10016, 10017
+        ],
+        "type": "integer",
+        "format": "int32",
+        "x-enum-varnames": [
+          "UserNotFound",
+          "PetNotFound",
+          "PetNotFoundForUser",
+          "PetMedicaDatalNotFound",
+          "EmailInUse",
+          "InvalidEmailOrPassword",
+          "ActionForbidden",
+          "IataCodeNotValid",
+          "LiabilityFormsNotFound",
+          "NotFound",
+          "FaqNotFound",
+          "CantReauthenticate",
+          "InvalidOrExpiredCode",
+          "PasswordConfirmationNotSame",
+          "SyncRequestAlreadyExists",
+          "EmailNotVerified",
+          "CodeResendTimeout",
+          "BadRequest",
+          "ValidationErrors",
+          "Required",
+          "NotValidEmailAddress",
+          "MinLength",
+          "MaxLength",
+          "Length",
+          "GreaterThanOrEqual",
+          "GreaterThan",
+          "LessThanOrEqual",
+          "LessThan",
+          "NotEqual",
+          "Predicate",
+          "Regex",
+          "Equal",
+          "ExactLength",
+          "Between",
+          "Empty",
+          "Invalid"
+        ]
+      },
+      "ErrorResponseDto": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "messageCode": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "code": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "stacktrace": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationFieldErrorDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaqRequestDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "question": {
+            "type": "string",
+            "nullable": true
+          },
+          "answer": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaqResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "question": {
+            "type": "string",
+            "nullable": true
+          },
+          "answer": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaqResponseDtoPagedResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FaqResponseDto"
+            },
+            "nullable": true
+          },
+          "totalResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForgotPasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForgotPasswordResetDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForgotPasswordVerifyCodeDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenderType": {
+        "enum": [2, 3],
+        "type": "integer",
+        "format": "int32",
+        "x-enum-varnames": ["Male", "Female"]
+      },
+      "HttpStatusCode": {
+        "enum": [
+          100, 101, 102, 103, 200, 201, 202, 203, 204, 205, 206, 207, 208, 226,
+          300, 300, 301, 301, 302, 302, 303, 303, 304, 305, 306, 307, 307, 308,
+          400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413,
+          414, 415, 416, 417, 421, 422, 423, 424, 426, 428, 429, 431, 451, 500,
+          501, 502, 503, 504, 505, 506, 507, 508, 510, 511
+        ],
+        "type": "integer",
+        "format": "int32",
+        "x-enum-varnames": [
+          "Continue",
+          "SwitchingProtocols",
+          "Processing",
+          "EarlyHints",
+          "OK",
+          "Created",
+          "Accepted",
+          "NonAuthoritativeInformation",
+          "NoContent",
+          "ResetContent",
+          "PartialContent",
+          "MultiStatus",
+          "AlreadyReported",
+          "IMUsed",
+          "MultipleChoices",
+          "Ambiguous",
+          "MovedPermanently",
+          "Moved",
+          "Found",
+          "Redirect",
+          "SeeOther",
+          "RedirectMethod",
+          "NotModified",
+          "UseProxy",
+          "Unused",
+          "TemporaryRedirect",
+          "RedirectKeepVerb",
+          "PermanentRedirect",
+          "BadRequest",
+          "Unauthorized",
+          "PaymentRequired",
+          "Forbidden",
+          "NotFound",
+          "MethodNotAllowed",
+          "NotAcceptable",
+          "ProxyAuthenticationRequired",
+          "RequestTimeout",
+          "Conflict",
+          "Gone",
+          "LengthRequired",
+          "PreconditionFailed",
+          "RequestEntityTooLarge",
+          "RequestUriTooLong",
+          "UnsupportedMediaType",
+          "RequestedRangeNotSatisfiable",
+          "ExpectationFailed",
+          "MisdirectedRequest",
+          "UnprocessableEntity",
+          "Locked",
+          "FailedDependency",
+          "UpgradeRequired",
+          "PreconditionRequired",
+          "TooManyRequests",
+          "RequestHeaderFieldsTooLarge",
+          "UnavailableForLegalReasons",
+          "InternalServerError",
+          "NotImplemented",
+          "BadGateway",
+          "ServiceUnavailable",
+          "GatewayTimeout",
+          "HttpVersionNotSupported",
+          "VariantAlsoNegotiates",
+          "InsufficientStorage",
+          "LoopDetected",
+          "NotExtended",
+          "NetworkAuthenticationRequired"
+        ]
+      },
+      "IATAResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IATAResponseDtoPagedResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IATAResponseDto"
+            },
+            "nullable": true
+          },
+          "totalResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LiabilityFormResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "document": {
+            "type": "string",
+            "nullable": true
+          },
+          "iataId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "iata": {
+            "$ref": "#/components/schemas/IATAResponseDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LiabilityFormResponseDtoPagedResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiabilityFormResponseDto"
+            },
+            "nullable": true
+          },
+          "totalResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequestDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/UserRoleEnum"
+          },
+          "airlineCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MedicalRequestDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "rabbiesManufacturer": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesNameOfProduct": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesBachNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesValidFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rabbiesValidTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rabbiesAmendments": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesAuthorisedVeterinarian": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesStatus": {
+            "$ref": "#/components/schemas/MedicalStatusEnum"
+          },
+          "rabbiesAntibodySampleCollectionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rabbiesAntibodyAuthorisedVeterinarian": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesAntibodyAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesAntibodyTelephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesAntibodyDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rabbiesAntibodySignature": {
+            "type": "string",
+            "nullable": true
+          },
+          "antiEchinococcousManufacturer": {
+            "type": "string",
+            "nullable": true
+          },
+          "antiEchinococcousNameOfProduct": {
+            "type": "string",
+            "nullable": true
+          },
+          "antiEchinococcousValidFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "antiEchinococcousValidTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "antiEchinococcousAuthorisedVeterinarian": {
+            "type": "string",
+            "nullable": true
+          },
+          "antiEchinococcousStatus": {
+            "$ref": "#/components/schemas/MedicalStatusEnum"
+          },
+          "otherParasiteTreatments": {
+            "type": "string",
+            "nullable": true
+          },
+          "otherVaccinations": {
+            "type": "string",
+            "nullable": true
+          },
+          "clinicalExamination": {
+            "type": "string",
+            "nullable": true
+          },
+          "legalisation": {
+            "type": "string",
+            "nullable": true
+          },
+          "others": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MedicalResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "rabbiesManufacturer": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesNameOfProduct": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesBachNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesValidFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rabbiesValidTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rabbiesAmendments": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesAuthorisedVeterinarian": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesStatus": {
+            "$ref": "#/components/schemas/MedicalStatusEnum"
+          },
+          "rabbiesAntibodySampleCollectionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rabbiesAntibodyAuthorisedVeterinarian": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesAntibodyAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesAntibodyTelephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesAntibodyDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rabbiesAntibodySignature": {
+            "type": "string",
+            "nullable": true
+          },
+          "rabbiesAntibodyStatus": {
+            "$ref": "#/components/schemas/MedicalStatusEnum"
+          },
+          "antiEchinococcousManufacturer": {
+            "type": "string",
+            "nullable": true
+          },
+          "antiEchinococcousNameOfProduct": {
+            "type": "string",
+            "nullable": true
+          },
+          "antiEchinococcousValidFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "antiEchinococcousValidTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "antiEchinococcousAuthorisedVeterinarian": {
+            "type": "string",
+            "nullable": true
+          },
+          "antiEchinococcousStatus": {
+            "$ref": "#/components/schemas/MedicalStatusEnum"
+          },
+          "otherParasiteTreatments": {
+            "type": "string",
+            "nullable": true
+          },
+          "otherVaccinations": {
+            "type": "string",
+            "nullable": true
+          },
+          "clinicalExamination": {
+            "type": "string",
+            "nullable": true
+          },
+          "legalisation": {
+            "type": "string",
+            "nullable": true
+          },
+          "others": {
+            "type": "string",
+            "nullable": true
+          },
+          "petId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MedicalStatusEnum": {
+        "enum": [1, 2, 3, 4],
+        "type": "integer",
+        "format": "int32",
+        "x-enum-varnames": ["NotVerified", "Verified", "Declined", "Expired"]
+      },
+      "PetRequestDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "sex": {
+            "$ref": "#/components/schemas/GenderType"
+          },
+          "passportNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "species": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "passportCountryId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "breed": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "microchipNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfApplicationOfTransponder": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "locationOfTransponder": {
+            "type": "string",
+            "nullable": true
+          },
+          "petTatto": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfApplicationOfTattoo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "locationOfTatto": {
+            "type": "string",
+            "nullable": true
+          },
+          "petImage": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "otherComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "veterinarian": {
+            "$ref": "#/components/schemas/VeterinarianRequestDto"
+          },
+          "medical": {
+            "$ref": "#/components/schemas/MedicalRequestDto"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PetResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "externalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "petImage": {
+            "type": "string",
+            "nullable": true
+          },
+          "species": {
+            "type": "string",
+            "nullable": true
+          },
+          "breed": {
+            "type": "string",
+            "nullable": true
+          },
+          "sex": {
+            "$ref": "#/components/schemas/GenderType"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "microchipNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "qrCodeImage": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfApplicationOfTransponder": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "locationOfTransponder": {
+            "type": "string",
+            "nullable": true
+          },
+          "petTatto": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfApplicationOfTattoo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "locationOfTatto": {
+            "type": "string",
+            "nullable": true
+          },
+          "passportNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "otherComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "passportCountryId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "passportCountry": {
+            "$ref": "#/components/schemas/CountryResponseDto"
+          },
+          "veterinarianId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "veterinarian": {
+            "$ref": "#/components/schemas/VeterinarianResponseDto"
+          },
+          "medicalId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "medical": {
+            "$ref": "#/components/schemas/MedicalResponseDto"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserResponseDto"
+          },
+          "vaccinationAgainstRabiesStatus": {
+            "$ref": "#/components/schemas/MedicalStatusEnum"
+          },
+          "rabbiesAntibody": {
+            "type": "boolean"
+          },
+          "antiEchinococcousTreatmentStatus": {
+            "$ref": "#/components/schemas/MedicalStatusEnum"
+          },
+          "finalStatus": {
+            "$ref": "#/components/schemas/MedicalStatusEnum"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PetResponseDtoPagedResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PetResponseDto"
+            },
+            "nullable": true
+          },
+          "totalResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenRequestDto": {
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterUserRequestDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TokenResponseDto": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "accessTokenExpiration": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateMePasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordConfirmation": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "externalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "genderType": {
+            "$ref": "#/components/schemas/GenderType"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "nationality": {
+            "$ref": "#/components/schemas/CountryResponseDto"
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/UserRoleEnum"
+          },
+          "profileImage": {
+            "type": "string",
+            "nullable": true
+          },
+          "passportNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentExpiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatusEnum"
+          },
+          "otherInformation": {
+            "type": "string",
+            "nullable": true
+          },
+          "facebook": {
+            "type": "string",
+            "nullable": true
+          },
+          "instagram": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkedIn": {
+            "type": "string",
+            "nullable": true
+          },
+          "liabilityForm": {
+            "type": "boolean"
+          },
+          "emailVerifiedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "iataId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "isOnboarded": {
+            "type": "boolean"
+          },
+          "pets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PetResponseDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserResponseDtoPagedResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResponseDto"
+            },
+            "nullable": true
+          },
+          "totalResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRoleEnum": {
+        "enum": [1, 2, 3],
+        "type": "integer",
+        "format": "int32",
+        "x-enum-varnames": ["SystemAdministrator", "Organisation", "User"]
+      },
+      "UserStatusEnum": {
+        "enum": [1, 2, 3, 4],
+        "type": "integer",
+        "format": "int32",
+        "x-enum-varnames": ["NotVerified", "Verified", "Deceased", "Expired"]
+      },
+      "ValidationFieldErrorDto": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "nullable": true
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VeterinarianRequestDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "notableCharacteristics": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VeterinarianResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "notableCharacteristics": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

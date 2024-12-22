@@ -1,0 +1,83 @@
+@import '../../assets/scss/variables.scss';
+
+.input-wrapper {
+  input,
+  textarea {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 0 $spacing3;
+    font-size: 20px;
+  }
+
+  // Sizes
+  &.input--large {
+    input,
+    textarea {
+      height: 65px;
+    }
+  }
+
+  &.input--normal {
+    input,
+    textarea {
+      height: 45px;
+      padding: 0 $spacing2;
+      font-size: 16px;
+    }
+  }
+
+  // Colors
+  &.input--bg-light {
+    input,
+    textarea {
+      background: #fff;
+      color: $textColor;
+    }
+
+    ::placeholder {
+      color: #666;
+    }
+  }
+
+  &.input--bg-dark {
+    input,
+    textarea {
+      background: rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
+
+    ::placeholder {
+      color: #ddd;
+    }
+  }
+
+  &.input--bordered {
+    input,
+    textarea {
+      border: 1px solid #d2d2d2;
+      color: $textColor;
+    }
+
+    ::placeholder {
+      color: #999;
+    }
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    display: inline-block;
+    margin-left: $spacing1;
+    font-size: 14px;
+  }
+
+  .input__label {
+    font-size: 18px;
+  }
+}
+
+input:read-only {
+  outline: none;
+  cursor: default;
+}
